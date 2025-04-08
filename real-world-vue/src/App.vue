@@ -8,14 +8,15 @@ import { RouterLink, RouterView } from 'vue-router'
 
       <div class="wrapper">
         <nav>
-          <RouterLink to="/">Home </RouterLink>|
+          <RouterLink to="/">Home </RouterLink>| <!--RouterLink est un composant global spécifique à Vue Router-->
           <RouterLink to="/about">About</RouterLink>
         </nav>
       
       </div>
     </header>
         
-    <RouterView />
+    <RouterView /> <!-- est essentiellement un espace réservé où le contenu de notre composant "view" sera rendu sur la page -->
+    
     
   </div>
 </template>
