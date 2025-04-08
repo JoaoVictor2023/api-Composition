@@ -1,8 +1,21 @@
 <script setup>
+import { ref, onMounted } from 'vue'
 import EventCard from '@/components/EventCard.vue'
-import { ref } from 'vue'
+import axios from 'axios'
 
+const events = ref(null)
 
+// hooks === méthodes
+onMounted(() => {
+  axios
+    .get('https://my-json-server.typicode.com/JoaoVictor2023/api-Composition/events')
+    .then(response => {
+      events.value = response.data
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+})
 
 </script>
 
