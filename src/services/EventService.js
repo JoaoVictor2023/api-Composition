@@ -12,5 +12,8 @@ const apiClient = axios.create({ // contient notre instance singulière d'Axios
 export default {
     getEvents() {
         return apiClient.get('/events')
+    },
+    getEvent(id) {
+        return apiClient.get(`/events/` + id)
     }
 }
