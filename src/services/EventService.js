@@ -1,0 +1,16 @@
+import axios from 'axios'
+
+const apiClient = axios.create({ // contient notre instance singulière d'Axios
+    baseURL: 'https://my-json-server.typicode.com/JoaoVictor2023/api-Composition',
+    withCredentials: false,
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+    }
+})
+
+export default {
+    getEvents() {
+        return apiClient.get('/events')
+    }
+}
