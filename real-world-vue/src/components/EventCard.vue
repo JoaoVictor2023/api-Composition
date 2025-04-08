@@ -1,16 +1,14 @@
 <script setup>
 import { ref } from 'vue'
-const event = ref({
-    id: 5928101,
-    category: 'animal welfare',
-    title: 'Cat Adoption Day',
-    description: 'Find ypur new feline friend at this event',
-    location: 'Meow Town',
-    date: 'January 28, 2022',
-    time: '12:00',
-    petsAllowed: true,
-    organizer: 'Kat Laydee',
+
+defineProps({
+    event: {
+        type: Object,
+        required: true,
+    },
 })
+
+
 </script>
 
 <template>
