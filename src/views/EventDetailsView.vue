@@ -1,9 +1,18 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import EventService from '@/services/EventService.js'
 
 const event = ref(null)
+const id = ref(123)
 
 onMounted(() => {
+    EventService.getEvent(id.value)
+        .then((response) => {
+            event.value = response.data
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 })
 
 </script>
