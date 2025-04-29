@@ -5,25 +5,20 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <div id="layout">
     <header>
-
       <div class="wrapper">
         <nav>
-          <RouterLink to="/">Events </RouterLink>| <!--RouterLink est un composant global spécifique à Vue Router-->
+          <RouterLink to="/">Events</RouterLink> |
           <RouterLink to="/about">About</RouterLink>
         </nav>
-      
       </div>
     </header>
-        
-    <RouterView /> <!-- est essentiellement un espace réservé où le contenu de notre composant "view" sera rendu sur la page -->
-
-    
+    <RouterView />
   </div>
 </template>
 
 <style>
 #layout {
-  font-family: Arial, Helvetica, Arial,sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

@@ -5,31 +5,28 @@ import EventService from '@/services/EventService.js'
 
 const events = ref(null)
 
-// hooks === méthodes
 onMounted(() => {
   EventService.getEvents()
-    .then(response => {
+    .then((response) => {
       events.value = response.data
     })
     .catch((error) => {
-      console.log(error);
+      console.log(error)
     })
 })
-
 </script>
 
 <template>
-    <h1>Events For Goods</h1>
-    <div class="events">
+  <h1>Events For Good</h1>
+  <div class="events">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
-<style scoped>
 
+<style scoped>
 .events {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 </style>

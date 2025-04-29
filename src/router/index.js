@@ -1,31 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import EventListView from '../views/EventListView.vue' // déclaration tout en haut pour éviter des répétition dans le code plus tard
-import EventDetailsView from '../views/EventDetailsView.vue' // déclaration tout en haut pour éviter des répétition dans le code plus tard
-import AboutView from '../views/AboutView.vue' // déclaration tout en haut pour éviter des répétition dans le code plus tard
+import EventListView from '../views/EventListView.vue'
+import AboutView from '../views/AboutView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/', // indique l'itinéraire réel
-      name: 'home', // nous permet de donner un nom à cette route
-      component: EventListView, // nous permet de spécifier le composant à rendre sur cette route
+      path: '/',
+      name: 'event-list',
+      component: EventListView,
     },
     {
-      path: '/about', // le composant "About" est affiché
+      path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: AboutView,
-    },
-    {
-      path: '/event/5928101', // le composant "About" est affiché
-      name: 'event-details',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: EventDetailsView,
     },
   ],
 })
