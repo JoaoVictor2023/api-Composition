@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import EventService from '@/services/EventService.js'
 
 const event = ref(null)
 const id = ref(5928101)
