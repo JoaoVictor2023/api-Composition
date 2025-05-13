@@ -1,7 +1,8 @@
 <script setup>
 import EventCard from "@/components/EventCard.vue";
 import EventService from "@/services/EventService.js";
-import { onMounted, ref, computed } from "vue";
+
+import { onMounted, ref, computed, watchEffect } from "vue";
 
 const props = defineProps(['page'])
 
@@ -10,14 +11,18 @@ const events = ref("");
 const page = computed(() => props.page)
 
 onMounted(() => {
-  EventService.getEvents(2, page.value)
-    .then((response) => {
-      events.value = response.data;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  watchEffect(() => {
+    events.value = null
+    EventService.getEvents(2, page.value)
+      .then((response) => {
+        events.value = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  })
 });
+
 </script>
 
 <template>
