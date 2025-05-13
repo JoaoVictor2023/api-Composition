@@ -40,6 +40,7 @@ const routes = [
     path: "/about-us",
     name: "About",
     component: About,
+    alias: '/about'
   },
 ];
 
