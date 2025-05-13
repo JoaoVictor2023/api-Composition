@@ -37,20 +37,10 @@ const routes = [
     ]
   },
   {
-    path: '/event/:id',
+    path: '/event/:afterEvent(.*)',
     redirect: to=> {
-      return { name: 'EventDetails', params: { id: to.params.id} }
+      return { path: '/events/' + to.params.afterEvent}
     },
-    children: [
-      {
-        path: 'register', 
-        redirect: () => ({ name: 'EventRegister'})
-      },
-      {
-        path: 'edit',
-        redirect: () => ({ name: 'EventEdit'})
-      }
-    ]
   },
   {
     path: "/about-us",
