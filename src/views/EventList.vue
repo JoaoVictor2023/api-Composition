@@ -10,12 +10,22 @@ const events = ref("");
 
 const page = computed(() => props.page)
 
+const totalEvents = ref(0)
+
+const hasNextPage = computed(() => {
+
+  const totalPages = Math.ceil(totalEvents.value / 2)
+
+  return page.value < totalPages
+})
+
 onMounted(() => {
   watchEffect(() => {
     events.value = null
     EventService.getEvents(2, page.value)
       .then((response) => {
         events.value = response.data;
+        totalEvents.value = response.headers['x-total-count']
       })
       .catch((error) => {
         console.log(error);
@@ -34,7 +44,7 @@ onMounted(() => {
       Prev Page
     </router-link>
 
-    <router-link :to="{name: 'EventList', query:{page: page + 1}}" rel="next">
+    <router-link :to="{name: 'EventList', query:{page: page + 1}}" rel="next" v-if="hasNextPage">
       Next Page
     </router-link>
   </div>
