@@ -24,7 +24,7 @@ onMounted(() => {
   <h1>Events for Good</h1>
   <div class="events">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
-
+    <!-- Problème: la liste des événements n'est pas mise à jour -->
     <router-link :to="{name: 'EventList', query: {page: page - 1} }" rel="prev" v-if="page != 1">
       Prev Page
     </router-link>
